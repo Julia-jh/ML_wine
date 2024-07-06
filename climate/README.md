@@ -2,16 +2,19 @@
 - 날짜는 역순으로 정렬
 
 ## file tree
+- climate 파일
 	- climate_data_crawling_2.ipynb
 		- 자료 정리 코드
-	- sample_ALL_KSM00047108.txt
-		- 샘플로 확인한 코드
+	- climate_data_crawling_3.ipynb
+		- 자료 정리 코드 다음 버전
 	- rawdata_climate 폴더
 		- 원본 자료
-			- country-list.txt
-				- 국가코드
-			- filelist.txt
-				- 지점코드
+		- country-list.txt
+			- 국가코드와 국가명
+		- filelist.txt
+			- 지점코드와 용량
+		- 지점코드.txt
+			- API로 읽어 저장함
 	- document_climate 폴더
 		- 참고 자료 정리
 			- GSOM_readme.txt
@@ -20,14 +23,52 @@
 				- 자료 설명서
 			- GSOM_GSOY_Description_Document_v1.0.2_20200219.pdf
 				- 연/월 통합 상세 설명서
-	- data 폴더
+	- data_climate 폴더
 		- 프로젝트에 활용할 정제된 데이터
 		- 기준 자료 정리
 			- country_list.csv
 			- file_list.csv
+		- 활용 자료
+			- 지점코드.csv
+				- 바로 csv로 저장할지 txt를 변환할지 못정함
 ---
 
 ## Describtion
+
+### 20240707 0220
+- 기상청 API 허브 말고 NCEI 홈페이지를 직접 이용하는 방법이 있어 Bulk 버전 파일을 따로 다운받고 있음
+	- 링크: https://www.ncei.noaa.gov/access/search/data-search/global-summary-of-the-month
+	- Global Summary of the Month (GSOM), Version 1
+	- File Count/Limit: 10000/1000   Total File Count: 122041
+- 지점 코드를 활용해 API 호출하고 바로 csv로 저장하여 df로 불러오는 것까지 수행
+	- globals() 함수 활용
+	- 랜덤으로 열어본 파일에서 날짜 결측치와, 주요 변수 결측치가 존재하는 것을 확인함
+	- 호출 횟수나 용량은 데이터를 살펴보는 데에는 문제 없을 것으로 보임, 정해지고 나서는 날짜를 나눠서 데이터를 받으면 될 것으로 보임
+- 지점 코드를 해석하는 방법에 대해 고민이 있음.
+	- 앞의 두 글자는 국가, 중간에 문자 하나가 더 있을 경우 망, 뒤에 지점번호는 9글자라고 나와있지만 실제로는 8글자인 경우가 많음. 무슨 일인지 질문해야 함
+	- feature 요소
+		- "STATION","DATE","LATITUDE","LONGITUDE","ELEVATION","NAME","CDSD","CDSD_ATTRIBUTES","CLDD","CLDD_ATTRIBUTES","DP01","DP01_ATTRIBUTES","DP10","DP10_ATTRIBUTES","DP1X","DP1X_ATTRIBUTES","DT00","DT00_ATTRIBUTES","DT32","DT32_ATTRIBUTES","DX32","DX32_ATTRIBUTES","DX70","DX70_ATTRIBUTES","DX90","DX90_ATTRIBUTES","DYNT","DYNT_ATTRIBUTES","DYXP","DYXP_ATTRIBUTES","DYXT","DYXT_ATTRIBUTES","EMNT","EMNT_ATTRIBUTES","EMXP","EMXP_ATTRIBUTES","EMXT","EMXT_ATTRIBUTES","HDSD","HDSD_ATTRIBUTES","HTDD","HTDD_ATTRIBUTES","PRCP","PRCP_ATTRIBUTES","TAVG","TAVG_ATTRIBUTES","TMAX","TMAX_ATTRIBUTES","TMIN","TMIN_ATTRIBUTES"
+	- 값에 ,가 존재하는 경우 어떻게 해석해야하 할지 모르겠음..
+- 만약에 GTS로 갈아탄다고 하면 너무 울것 같음.
+	- 내일은 GTS에 결측치가 어떻게 나오는지 확인해야겠음
+	- 데이터 정합성이 더 좋다면 갈아타야할 수도 있음..
+	- GTS의 일일 데이터를 월 통계로 변환하는 작업이 필요할지도 모르겠음
+#### 다음 할 일
+- GTS 활용법 확인
+	- GTS 자료와 NCEI 자료 비교 가능하다면 확인 필요
+- txt로 저장 후 csv 변환과 csv로 바로 저장한 버전에 자료 손실 등으로 인한 차이가 있는지 확인하기
+- NCEI 지점코드 해석법 필요함
+- NCEI 자료와 국가 코드를 연결하여 컬럼을 하나 추가해야 함
+#### 새롭게 발견한 사실
+- csv 파일 전체 다운받음
+	- gsom-latest.tar.gz
+	- 1.5기가이지만, tar까지 풀면 9기가 넘음
+
+<br>
+<br>
+<br>
+<br>
+
 ### 20240706 0200
 - 기상청 API 허브 내에서 세계기상 월별 평균 자료를 활용할 것이므로 NCEI 관측. 통계 자료를 활용함
 	- GTS는 XML, JSON 파일로 얻을 수 있기 때문에 추후에 변경 시 많은 노력이 필요할 것
