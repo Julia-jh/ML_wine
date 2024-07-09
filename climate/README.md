@@ -35,6 +35,12 @@
 
 ## Describtion
 
+
+### 20240709 1940
+- # 개인 고유 인증키, 각자 버전 활용해야 함
+    - AUTH = "secrets Leak alerts로 인해 마스킹처리, 코드 run 원할시 기상청 API 허브 가입 후 활용해 주세요."
+
+
 ### 20240707 0220
 - 기상청 API 허브 말고 NCEI 홈페이지를 직접 이용하는 방법이 있어 Bulk 버전 파일을 따로 다운받고 있음
 	- 링크: https://www.ncei.noaa.gov/access/search/data-search/global-summary-of-the-month
