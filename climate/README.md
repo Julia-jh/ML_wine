@@ -54,7 +54,7 @@
         - 추후 필요시 수기로 찾아봐야 함
 - 데이터 위치 지도로 확인 가능
     - https://www.ncei.noaa.gov/maps/monthly/
-	<img src = "./img/NCEI_greece.png", width = "50%", height = "50%">
+	<img src = "./img/NCEI_greece.png">
 
 <br>
 
