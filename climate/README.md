@@ -39,6 +39,11 @@
         - gsom-latest 폴더
             - NCEI 홈페이지에서 직접 받은 csv 파일
             - API 허브에서 받은 것과 동일함
+	- NCEI_data 폴더
+		- gsom_sample_csv.csv
+			- 데이터 샘플
+		- stations.csv
+			- 지역별 위치, 지점코드 정보를 얻을 수 있음
 ---
 
 ## Describtion
