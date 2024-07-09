@@ -3,10 +3,15 @@
 
 ## file tree
 - climate 파일
-	- climate_data_crawling_2.ipynb
-		- 자료 정리 코드
-	- climate_data_crawling_3.ipynb
-		- 자료 정리 코드 다음 버전
+	- climate_data_test.ipynb
+		- 자료 정리 및 테스트 코드
+        - 연습 및 코드 누적용
+	- climate_data_crawling.ipynb
+		- API 이용한 자료 다운로드 코드
+    - climate_list_download.ipynb
+        - 기준 자료 정리 코드
+    - climate_data_country.ipynb
+        - 국가 코드, 국가명, 파일 이름을 연결
 	- rawdata_climate 폴더
 		- 원본 자료
 		- country-list.txt
@@ -31,15 +36,36 @@
 		- 활용 자료
 			- 지점코드.csv
 				- 바로 csv로 저장할지 txt를 변환할지 못정함
+        - gsom-latest 폴더
+            - NCEI 홈페이지에서 직접 받은 csv 파일
+            - API 허브에서 받은 것과 동일함
 ---
 
 ## Describtion
 
+### 20240709 2110
+- 파이썬 코드 기능 별로 분리함, file tree 참고
+- climate_data_country.ipynb
+    - file list와 country list를 병합하여 파일의 국가명을 정리함
+    - NCEI에서 받은 대용량 파일을 정리함
+        - data_climate 폴더의 gsom-latest 폴더 내부에 존재함
+    - 직접 받은 파일들과 file list가 동일한지 확인
+        - 16개 자료는 파일은 있으나 국가 코드 확인이 안 됨
+        - 추후 필요시 수기로 찾아봐야 함
+- 데이터 위치 지도로 확인 가능
+    - https://www.ncei.noaa.gov/maps/monthly/ <img src = "./NCEI_greece.png",
+                                                   width = "50%", height = "50%">
+
+<br>
 
 ### 20240709 1940
-- # 개인 고유 인증키, 각자 버전 활용해야 함
+- 개인 고유 인증키, 각자 버전 활용해야 함
     - AUTH = "secrets Leak alerts로 인해 마스킹처리, 코드 run 원할시 기상청 API 허브 가입 후 활용해 주세요."
-
+    
+<br>
+<br>
+<br>
+<br>
 
 ### 20240707 0220
 - 기상청 API 허브 말고 NCEI 홈페이지를 직접 이용하는 방법이 있어 Bulk 버전 파일을 따로 다운받고 있음
