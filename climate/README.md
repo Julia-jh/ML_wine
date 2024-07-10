@@ -39,6 +39,8 @@
         - gsom-latest 폴더
             - NCEI 홈페이지에서 직접 받은 csv 파일
             - API 허브에서 받은 것과 동일함
+        - dfLocation_sample.csv
+            - 우선 1000개 자료만 정리함
 	- NCEI_data 폴더
 		- gsom_sample_csv.csv
 			- 데이터 샘플
@@ -47,6 +49,16 @@
 ---
 
 ## Describtion
+
+### 20240710 1740
+- NCEI 모든 파일의 첫 번째 행을 가져와 정리중
+    - 총 갯수가 122041개라 오래 걸림
+    - 오래 걸리는 이유가 df의 insert 작업 때문이라고 함, 일단 시간이 없어서 돌려보면서 함수 고치는 중
+    
+<br>
+<br>
+<br>
+<br>
 
 ### 20240709 2110
 - 파이썬 코드 기능 별로 분리함, file tree 참고
