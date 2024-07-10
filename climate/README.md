@@ -50,6 +50,14 @@
 
 ## Describtion
 
+### 20240710 1800
+- NCEI 모든 파일의 첫 번째 행을 가져와 정리중
+    - iloc가 빠르다는 말과 loc가 빠르다는 말이 다 다르다. 왤까.. 왤까....
+        - https://devocean.sk.com/blog/techBoardDetail.do?ID=164657&boardType=techBlog
+        - https://m.blog.naver.com/draco6/221680932777
+    - 생각해보니 이 작업을 꼭 python으로 해야 하나...? 다른 곳에서 csv 파일들 헤더를 제외한 첫 번째 행을 빠르게 추추하는 방법은 없을까?
+<br>
+
 ### 20240710 1740
 - NCEI 모든 파일의 첫 번째 행을 가져와 정리중
     - 총 갯수가 122041개라 오래 걸림
